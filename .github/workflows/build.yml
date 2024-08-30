@@ -51,12 +51,14 @@ jobs:
       - run: npm run build --if-present
 
       - name: Archive Release
+        if: steps.verify-changed-code.outputs.any_changed == 'true'
         uses: thedoctor0/zip-release@0.7.5
         with:
           type: "zip"
           filename: "release.zip"
           exclusions: "*.git* /*node_modules/* .editorconfig"
       - name: Upload Release
+        if: steps.verify-changed-code.outputs.any_changed == 'true'
         uses: ncipollo/release-action@v1
         with:
           artifacts: "release.zip"
