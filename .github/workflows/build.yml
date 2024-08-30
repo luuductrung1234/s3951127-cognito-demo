@@ -60,7 +60,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "release.zip"
-          token: ${{ secrets.GITHUB }}
+          # token: ${{ secrets.GITHUB }}
           allowUpdates: true
           makeLatest: true
           tag: pre.${{ github.run_number }}
