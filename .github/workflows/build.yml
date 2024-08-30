@@ -29,6 +29,7 @@ jobs:
         uses: tj-actions/changed-files@v23.1
         with:
           files: |
+            .github/**
             **/package.json
             src
             src/**
@@ -56,7 +57,10 @@ jobs:
           filename: "release.zip"
           exclusions: "*.git* /*node_modules/* .editorconfig"
       - name: Upload Release
-        uses: ncipollo/release-action@v1.12.0
+        uses: ncipollo/release-action@v1
         with:
           artifacts: "release.zip"
           token: ${{ secrets.GITHUB }}
+          allowUpdates: true
+          makeLatest: true
+          tag: pre.${{ github.run_number }}
