@@ -1,0 +1,88 @@
+<%- include('../includes/head.ejs') %>
+	<link rel="stylesheet" href="/css/forms.css">
+	<link rel="stylesheet" href="/css/product.css">
+	</head>
+
+	<body>
+		<%- include('../includes/nav.ejs') %>
+			<main>
+				<% if(!edit) { %>
+					<form class="product-form" action="/admin/add-product" method="POST">
+						<div class="form-control">
+							<label for="title">Title</label>
+							<input type="text" name="title" id="title" value="<%= product.title %>">
+						</div>
+						<div class="form-control">
+							<label for="category">Category</label>
+							<input type="text" name="category" id="category" value="<%= product.category %>">
+						</div>
+						<div class="form-control">
+							<label for="imageUrl">Image URL</label>
+							<input type="text" name="imageUrl" id="imageUrl" value="<%= product.imageUrl %>">
+						</div>
+						<div class="form-control">
+							<label for="price">Price</label>
+							<input type="number" name="price" id="price" step="0.01" value="<%= product.price %>">
+						</div>
+						<div class="form-control">
+							<label for="description">Description</label>
+							<textarea name="description" id="description" rows="5"><%= product.description %></textarea>
+						</div>
+
+						<div class="form-action">
+							<button class="btn" type="submit">Add Product</button>
+						</div>
+					</form>
+					<% } else { %>
+						<form class="form-container" action="<%= `/admin/edit-product/${product.id}` %>" method="POST">
+							<section class="form-section product-form">
+								<h2 class="form-title">General</h2>
+								<div class="form-control">
+									<label for="title">Title</label>
+									<input type="text" name="title" id="title" value="<%= product.title %>">
+								</div>
+								<div class="form-control">
+									<label for="category">Category</label>
+									<input type="text" name="category" id="category" value="<%= product.category %>">
+								</div>
+								<div class="form-control">
+									<label for="imageUrl">Image URL</label>
+									<input type="text" name="imageUrl" id="imageUrl" value="<%= product.imageUrl %>">
+								</div>
+								<div class="form-control">
+									<label for="price">Price</label>
+									<input type="number" name="price" id="price" step="0.01" value="<%= product.price %>">
+								</div>
+								<div class="form-control">
+									<label for="description">Description</label>
+									<textarea name="description" id="description" rows="5"><%= product.description %></textarea>
+								</div>
+							</section>
+							<section class="form-section product-form">
+								<h2 class="form-title">Extra Attributes</h2>
+								<% if(product.attributes?.length> 0) { %>
+									<% for (const [index, attribute] of product.attributes.filter(a=> !a.isDeleted).entries()) { %>
+										<div class="form-control">
+											<% let value=product.attributeValues.find(v=> v.attributeId === attribute.id)?.value ?? "" %>
+												<label for="attributeValues[<%= index %>][value]">
+													<%= attribute.displayName %>
+												</label>
+												<input type="text" name="attributeValues[<%= index %>][value]" value="<%= value %>"
+													<%=attribute.isRequired ? "required" : "" %>>
+												<input type="hidden" name="attributeValues[<%= index %>][attributeId]"
+													value="<%= attribute.id %>">
+										</div>
+										<% } %>
+											<% } else { %>
+												<div class="form-blank">
+													<p>No Extra Attribute</p>
+												</div>
+												<% } %>
+													<div class="form-action">
+														<button class="btn" type="submit">Edit Product</button>
+													</div>
+							</section>
+						</form>
+						<% } %>
+			</main>
+			<%- include('../includes/end.ejs') %>
