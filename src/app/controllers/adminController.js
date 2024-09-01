@@ -7,6 +7,8 @@ const getListProduct = controller.get(async (req, res) => {
   res.render("admin/product-list", {
     pageTitle: "Admin Products",
     path: "/admin/products",
+    isAuth: req.isAuth,
+    username: req.username,
     products,
     totalCount,
     previousQuery: req.query,

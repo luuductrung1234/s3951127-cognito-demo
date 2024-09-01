@@ -72,7 +72,8 @@
 									<td class="text-center">
 										<%= product.category ?? "-" %>
 									</td>
-									<td><%- include('../includes/product/price.ejs', {price: product.price}) %></td>
+									<td><%- include('../includes/product/price.ejs', {price: product.price, discountPrice:
+											product.discountPrice}) %></td>
 									<td><%- include('../includes/product/description.ejs', {description: product.description}) %></td>
 									<td class="text-center">
 										<div class="d-flex justify-content-center">

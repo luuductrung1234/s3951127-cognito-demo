@@ -290,7 +290,7 @@
 		"title": "Black Myth Speaker",
 		"imageUrl": "https://m.media-amazon.com/images/I/815nga8GBqL._AC_SL1500_.jpg",
 		"description": "This generation of the home line-up has an even wider soundstage than before, delivering immersive Marshall signature sound.Waterproof : No. These speakers are straight to business, so you can just pair and play without the hassle of a complex set-up.",
-		"price": 229.99,
+		"price": 99.98,
 		"discountPrice": null,
 		"recommended": false,
 		"category": "speaker",
@@ -314,6 +314,48 @@
 				"name": "mount",
 				"displayName": "Mounting Type",
 				"value": "Tabletop Mount"
+			}
+		]
+	},
+	{
+		"id": 10,
+		"title": "Comfort Chair",
+		"imageUrl": "https://m.media-amazon.com/images/I/71WvJeaS4PL._AC_SL1500_.jpg",
+		"description": "Most Comfortable And Relaxing: Equipped with headrest and lumbar pillow. When your neck feels sore from gaming or working with head down for a long time, the headrest will relieve your fatigue. When tired from maintaining a same sitting posture, please rest assured to lean back and charge your waist pillow, it will relax your tired waist energetically. More Stable Than Others: Common gaming chairs are equipped with plastic legs generally to save costs, but we still insist on applying the same material as the built-in metal frame. No fear of high or low temperature, no fear of the sunshine, no fear of wind, it will not rust and break. Whether child rolls on the chair or a pet jumps up excitedly, the sturdy metal legs will keep the chair stable firmly. Liberate Your Feet: Will you feel tired for sitting all the time? Sure. Then you can choose the chair with footrest to relax your feet. When you don’t want to straighten your back and sit, just take out the footrest, put your feet up, turn on your favorite music, and start enjoying the comfort! And don’t worry about clean, it is also made of high-quality PU leather, just wipe it with a soft cloth and it will shine as new.",
+		"price": 229.99,
+		"discountPrice": null,
+		"recommended": false,
+		"category": "chair",
+		"attributes": [
+			{
+				"name": "material",
+				"displayName": "Material",
+				"value": "Faux Leather"
+			},
+			{
+				"name": "frameMaterial",
+				"displayName": "Frame Material",
+				"value": "Metal"
+			},
+			{
+				"name": "weight",
+				"displayName": "Item Weight",
+				"value": "42 Pounds"
+			},
+			{
+				"name": "ageRange",
+				"displayName": "Age Range (Description)",
+				"value": "Adult"
+			},
+			{
+				"name": "color",
+				"displayName": "Color",
+				"value": "White"
+			},
+			{
+				"name": "brand",
+				"displayName": "Brand",
+				"value": "GTPLAYER"
 			}
 		]
 	}

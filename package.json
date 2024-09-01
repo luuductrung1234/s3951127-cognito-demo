@@ -7,7 +7,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "set NODE_ENV=development&& nodemon --inspect ./src/app.js",
 		"start:prod": "set NODE_ENV=production&& nodemon --inspect ./src/app.js",
-		"macStart": "export NODE_ENV=development && nodemon --inspect ./src/app.js",
+		"macStart": "export NODE_ENV=local && nodemon --inspect ./src/app.js",
 		"macStart:prod": "export NODE_ENV=production && nodemon --inspect ./src/app.js"
 	},
 	"repository": {
@@ -21,14 +21,17 @@
 	},
 	"homepage": "https://github.com/luuductrung1234/s3951127-cognito-demo#readme",
 	"dependencies": {
-		"aws-sdk": "*",
+		"@aws-sdk/client-secrets-manager": "^3.637.0",
 		"cognito-express": "2.0.19",
+		"cookie-parser": "^1.4.6",
 		"cors": "*",
 		"dotenv": "^16.4.5",
 		"ejs": "^3.1.10",
 		"express": "^4.19.2",
 		"joi": "^17.13.3",
-		"morgan": "^1.10.0"
+		"jsonwebtoken": "^9.0.2",
+		"morgan": "^1.10.0",
+		"url-pattern": "^1.0.3"
 	},
 	"devDependencies": {
 		"nodemon": "^3.1.4"
