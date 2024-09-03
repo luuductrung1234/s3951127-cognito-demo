@@ -6,8 +6,8 @@ const getShop = controller.get(async (req, res, next) => {
   res.render("shop/index", {
     pageTitle: "Shop",
     path: "/",
-    isAuth: req.isAuth,
-    username: req.username,
+    isAuth: req.auth.isAuth,
+    username: req.auth.username,
     recommendedProducts: (
       await productService.listProducts({
         recommended: true,
@@ -31,8 +31,8 @@ const getListProduct = controller.get(async (req, res, next) => {
   res.render("shop/product-list", {
     pageTitle: "All Products",
     path: "/products",
-    isAuth: req.isAuth,
-    username: req.username,
+    isAuth: req.auth.isAuth,
+    username: req.auth.username,
     products,
     totalCount,
     previousQuery: req.query,
@@ -43,8 +43,8 @@ const getProduct = controller.get(async (req, res, next) => {
   res.render("shop/product-detail", {
     pageTitle: "Product",
     path: "/products",
-    isAuth: req.isAuth,
-    username: req.username,
+    isAuth: req.auth.isAuth,
+    username: req.auth.username,
     product: await productService.findById(req.params.id),
   });
 }, dto.FindProductParams);

@@ -9,7 +9,7 @@ require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
 
 const rootDir = require("./utils/path");
 const route = require("./routes");
-const { authMiddleware } = require("./middlewares/authMiddleware");
+const { auth } = require("./middlewares/authMiddleware");
 const globalErrorHandler = require("./middlewares/globalErrorHandler");
 
 const app = express();
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("combined"));
 app.use(express.static(path.join(rootDir, "public")));
 
-app.use(authMiddleware);
+app.use(auth);
 
 route(app);
 

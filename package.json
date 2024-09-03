@@ -5,8 +5,10 @@
 	"main": "src/app.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "set NODE_ENV=development&& nodemon --inspect ./src/app.js",
-		"start:prod": "set NODE_ENV=production&& nodemon --inspect ./src/app.js",
+		"start": "set NODE_ENV=development&& node ./src/app.js",
+		"start:prod": "set NODE_ENV=production&& node ./src/app.js",
+		"forever": "set NODE_ENV=development&& forever start ./src/app.js",
+		"forever:prod": "set NODE_ENV=production&& forever start ./src/app.js",
 		"macStart": "export NODE_ENV=local && nodemon --inspect ./src/app.js",
 		"macStart:prod": "export NODE_ENV=production && nodemon --inspect ./src/app.js"
 	},

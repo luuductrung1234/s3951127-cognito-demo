@@ -14,11 +14,23 @@ const {
  * @param {NextFunction} next
  * @returns
  */
-const authMiddleware = async (req, res, next) => {
+const auth = async (req, res, next) => {
   console.log("auth middleware", req);
 
+  let loginEndpoint = new UrlPattern("/login");
+  if (loginEndpoint.match(req.path)) {
+    const redirectUrl = await constructHostedURL();
+    res.writeHead(302, {
+      Location: redirectUrl,
+      //add other headers here...
+    });
+    res.end();
+    return;
+  }
+
   try {
-    req.isAuth = false;
+    req.auth = {};
+    req.auth.isAuth = false;
 
     let token = req.cookies.jwt;
     if (!token || isTokenExpire(token)) {
@@ -40,8 +52,9 @@ const authMiddleware = async (req, res, next) => {
 
     const session = await cognitoExpressSession();
     const response = await session.validate(token);
-    req.username = response["cognito:username"];
-    req.isAuth = true;
+    req.auth.username = response["cognito:username"];
+    req.auth.groups = response["cognito:groups"] || [];
+    req.auth.isAuth = true;
     next();
   } catch (error) {
     console.error(error);
@@ -95,5 +108,5 @@ const isTokenExpire = (token) => {
 };
 
 module.exports = {
-  authMiddleware,
+  auth,
 };

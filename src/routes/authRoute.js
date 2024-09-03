@@ -21,10 +21,6 @@ authRoutes.get("/callback", (req, res, next) => {
   res.redirect("/");
 });
 
-authRoutes.get("/login", (req, res, next) => {
-  res.redirect("/");
-});
-
 authRoutes.get("/logout", (req, res, next) => {
   res.clearCookie("jwt");
   res.redirect("/");
