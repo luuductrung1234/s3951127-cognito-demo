@@ -16,3 +16,7 @@
   border-bottom: 0px white none;
   border-style: none;
 }
+
+.cart_actions {
+  width: 400px;
+}

@@ -19,6 +19,8 @@
 						</div>
 						<div class="col-5 d-flex align-items-center">
 							<form class="w-100" action="/admin/products" method="GET">
+								<input type="hidden" name="pageIndex" id="pageIndex" value="0">
+								<input type="hidden" name="pageSize" id="pageSize" value="8">
 								<div class="search">
 									<input type="text" class="searchTerm" name="searchText" id="searchText"
 										placeholder="What are you looking for?" value="<%= previousQuery?.searchText ?? "" %>">

@@ -6,9 +6,13 @@ class Product {
    * @param {string} description
    * @param {number} price
    * @param {string} category
-   * @param {string[]} attributes
+   * @param {object[]} attributes
    * @param {boolean} recommended
    * @param {number} discountPrice
+   * @param {string} createdBy
+   * @param {Date} createdAt
+   * @param {string} updatedBy
+   * @param {Date} updatedAt
    */
   constructor(
     id,
@@ -19,7 +23,11 @@ class Product {
     category,
     attributes,
     recommended,
-    discountPrice
+    discountPrice,
+    createdBy,
+    createdAt,
+    updatedBy,
+    updatedAt
   ) {
     this.id = id;
     this.title = title;
@@ -30,8 +38,22 @@ class Product {
     this.attributes = attributes;
     this.recommended = recommended;
     this.discountPrice = discountPrice;
+    this.createdAt = createdAt || new Date();
+    this.createdBy = createdBy;
+    this.updatedAt = updatedAt || null;
+    this.updatedBy = updatedBy || null;
     this.isDeleted = false;
   }
+
+  /**
+   * @param {string} deletedBy
+   * @type {(updatedBy: string) => void}
+   */
+  delete = (deletedBy) => {
+    this.isDeleted = true;
+    this.updatedAt = deletedBy;
+    this.updatedBy = new Date();
+  };
 
   static getAttributes = () => Object.keys(new Product());
 
@@ -53,7 +75,11 @@ class Product {
           p.category,
           p.attributes,
           p.recommended,
-          p.discountPrice
+          p.discountPrice,
+          p.createdBy,
+          p.createdAt,
+          p.updatedBy,
+          p.updatedAt
         )
     );
   };

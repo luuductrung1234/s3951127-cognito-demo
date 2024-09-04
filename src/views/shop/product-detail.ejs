@@ -19,7 +19,8 @@
 								<img src="<%= product.imageUrl %>" width="250px" alt="<%= product.title %>">
 							</div>
 							<div class="ms-3">
-								<h2><%- include('../includes/product/price.ejs', {price: product.price}) %></h2>
+								<h2><%- include('../includes/product/price.ejs', {price: product.price, discountPrice:
+										product.discountPrice}) %></h2>
 								<p>
 									<%= product.description %>
 								</p>

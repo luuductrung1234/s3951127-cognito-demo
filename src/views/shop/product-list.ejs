@@ -13,6 +13,8 @@
 				<h1>Products</h1>
 				<form action="/products" method="GET">
 					<div class="wrap">
+						<input type="hidden" name="pageIndex" id="pageIndex" value="0">
+						<input type="hidden" name="pageSize" id="pageSize" value="8">
 						<div class="search">
 							<input type="text" class="searchTerm" name="searchText" id="searchText"
 								placeholder="What are you looking for?" value="<%= previousQuery?.searchText ?? "" %>">
@@ -26,7 +28,8 @@
 				<% if (products.length> 0) { %>
 					<div class="grid">
 						<% for (const product of products) { %>
-							<%- include('../includes/product/product-card.ejs', {product, goTo: '/products' }) %>
+							<%- include('../includes/product/product-card.ejs', {product, goTo:
+								`/products?pageIndex=${previousQuery.pageIndex || 0}&pageSize=${previousQuery.pageSize || 8}` }) %>
 								<% } %>
 					</div>
 					<%- include('../includes/pagination.ejs', {totalCount, previousQuery}) %>
