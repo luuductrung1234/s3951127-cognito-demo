@@ -32,4 +32,6 @@ app.use(globalErrorHandler);
 
 //const server = http.createServer(app);
 //server.listen(3000);
-app.listen(process.env.APP_PORT);
+app.listen(process.env.APP_PORT, () => {
+  console.log(`Server running on port ${process.env.APP_PORT}`);
+});
