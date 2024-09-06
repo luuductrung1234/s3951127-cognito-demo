@@ -18,12 +18,12 @@ const findById = async (id) => {
 const addProduct = async (createProductDto) => {
   let discountPrice = null;
   if (
-    !isNaN(updateProductDto.discountPrice) &&
-    updateProductDto.discountPrice !== undefined &&
-    updateProductDto.discountPrice !== null &&
-    updateProductDto.discountPrice !== ""
+    !isNaN(createProductDto.discountPrice) &&
+    createProductDto.discountPrice !== undefined &&
+    createProductDto.discountPrice !== null &&
+    createProductDto.discountPrice !== ""
   )
-    discountPrice = parseFloat(updateProductDto.discountPrice);
+    discountPrice = parseFloat(createProductDto.discountPrice);
 
   const product = await productRepository.saveProduct(
     new models.Product(
