@@ -34,7 +34,7 @@ const addProduct = async (createProductDto) => {
       createProductDto.price,
       createProductDto.category,
       createProductDto.attributeValues,
-      updateProductDto.recommended === "on" ? true : false,
+      createProductDto.recommended === "on" ? true : false,
       discountPrice,
       createProductDto.createdBy
     )
